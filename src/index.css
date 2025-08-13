@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer components {
+  .card-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #a855f7 0deg,
+      #3b82f6 120deg,
+      #a855f7 360deg
+    );
+    filter: blur(75px);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    z-index: 0;
+  }
+
+  .card-glow:hover::before {
+    opacity: 0.15;
+  }
+
+  .card-glow > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+body {
+    @apply bg-[#1a1a2e] text-white;
+}
