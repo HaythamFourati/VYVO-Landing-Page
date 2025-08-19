@@ -1,13 +1,18 @@
 <?php
-
 get_header(); ?>
 
 <main class="bg-[#1a1a2e] text-white">
   <section class="py-16">
     <div class="max-w-7xl container mx-auto px-4">
       <header class="mb-10 text-center">
-        <h1 class="text-4xl font-bold">Our <span class="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">Blog</span></h1>
-        <p class="text-gray-400 mt-2">News and insights on AI, Blockchain, and Digital Health</p>
+        <h1 class="text-4xl font-bold">
+          <?php the_archive_title(); ?>
+        </h1>
+        <?php if (get_the_archive_description()) : ?>
+          <p class="text-gray-400 mt-2">
+            <?php the_archive_description(); ?>
+          </p>
+        <?php endif; ?>
       </header>
 
       <?php if (have_posts()) : ?>
