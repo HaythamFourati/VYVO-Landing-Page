@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@layer components {
+  .card-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 180deg at 50% 50%,
+      #a855f7 0deg,
+      #3b82f6 120deg,
+      #a855f7 360deg
+    );
+    filter: blur(75px);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    z-index: 0;
+  }
+
+  .card-glow:hover::before {
+    opacity: 0.15;
+  }
+
+  .card-glow > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply bg-[#1a1a2e] text-white;
+}
+
+
+/* Custom Animations for VYVO Background */
+      @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      @keyframes ping-slow {
+        0%, 100% { 
+          transform: scale(1);
+          opacity: 0.4;
+        }
+        50% { 
+          transform: scale(1.1);
+          opacity: 0.8;
+        }
+      }
+      
+      @keyframes float-1 {
+        0%, 100% { 
+          transform: translateY(0px) translateX(0px);
+          opacity: 0.6;
+        }
+        33% { 
+          transform: translateY(-20px) translateX(10px);
+          opacity: 0.8;
+        }
+        66% { 
+          transform: translateY(10px) translateX(-5px);
+          opacity: 0.4;
+        }
+      }
+      
+      @keyframes float-2 {
+        0%, 100% { 
+          transform: translateY(0px) translateX(0px);
+          opacity: 0.8;
+        }
+        50% { 
+          transform: translateY(-15px) translateX(-8px);
+          opacity: 0.3;
+        }
+      }
+      
+      @keyframes float-3 {
+        0%, 100% { 
+          transform: translateY(0px) translateX(0px);
+          opacity: 0.5;
+        }
+        25% { 
+          transform: translateY(15px) translateX(12px);
+          opacity: 0.7;
+        }
+        75% { 
+          transform: translateY(-10px) translateX(-6px);
+          opacity: 0.2;
+        }
+      }
+      
+      @keyframes float-4 {
+        0%, 100% { 
+          transform: translateY(0px) translateX(0px);
+          opacity: 0.7;
+        }
+        40% { 
+          transform: translateY(-25px) translateX(15px);
+          opacity: 0.9;
+        }
+        80% { 
+          transform: translateY(8px) translateX(-10px);
+          opacity: 0.3;
+        }
+      }
+      
+      .animate-spin-slow {
+        animation: spin-slow 8s linear infinite;
+      }
+      
+      .animate-ping-slow {
+        animation: ping-slow 4s ease-in-out infinite;
+      }
+      
+      .animate-float-1 {
+        animation: float-1 6s ease-in-out infinite;
+      }
+      
+      .animate-float-2 {
+        animation: float-2 8s ease-in-out infinite;
+      }
+      
+      .animate-float-3 {
+        animation: float-3 7s ease-in-out infinite;
+      }
+      
+      .animate-float-4 {
+        animation: float-4 5s ease-in-out infinite;
+      }
+      
+      /* Custom width classes for larger circles */
+      .w-88 { width: 22rem; }
+      .h-88 { height: 22rem; }
+    
